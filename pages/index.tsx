@@ -5,30 +5,15 @@ import Image from "next/image";
 import ContentSection from "../components/ContentSection";
 import Header from "../components/Header";
 import styles from "../styles/Home.module.css";
-import { sections } from "./../public/site-content.json";
+import { content } from "./../public/data";
+
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
 
 const Home: NextPage = (props) => {
-
-  const content = {
-    sections: [
-      {
-        title: "about",
-        body: "Sunt id quis aliquip reprehenderit ad veniam adipisicing magna consectetur incididunt sunt eu. Minim proident qui dolore minim anim nisi elit culpa nulla reprehenderit et minim duis reprehenderit. Velit duis duis id elit ut quis Lorem est cupidatat deserunt do ullamco cupidatat labore excepteur. Enim nisi mollit consectetur incididunt nisi ullamco enim. Fugiat reprehenderit id adipisicing ad reprehenderit. Consectetur nulla et est sit ipsum non. Ut consequat voluptate fugiat quis cupidatat irure excepteur adipisicing Lorem deserunt velit laboris officia do in. Consectetur enim consequat et cillum veniam sint aliqua incididunt reprehenderit officia excepteur consectetur id nostrud.",
-      },
-      {
-        title: "work",
-        body: "Sunt id quis aliquip reprehenderit ad veniam adipisicing magna consectetur incididunt sunt eu. Minim proident qui dolore minim anim nisi elit culpa nulla reprehenderit et minim duis reprehenderit. Velit duis duis id elit ut quis Lorem est cupidatat deserunt do ullamco cupidatat labore excepteur. Enim nisi mollit consectetur incididunt nisi ullamco enim. Fugiat reprehenderit id adipisicing ad reprehenderit. Consectetur nulla et est sit ipsum non. Ut consequat voluptate fugiat quis cupidatat irure excepteur adipisicing Lorem deserunt velit laboris officia do in. Consectetur enim consequat et cillum veniam sint aliqua incididunt reprehenderit officia excepteur consectetur id nostrud.",
-      },
-      {
-        title: "play",
-        body: "Sunt id quis aliquip reprehenderit ad veniam adipisicing magna consectetur incididunt sunt eu. Minim proident qui dolore minim anim nisi elit culpa nulla reprehenderit et minim duis reprehenderit. Velit duis duis id elit ut quis Lorem est cupidatat deserunt do ullamco cupidatat labore excepteur. Enim nisi mollit consectetur incididunt nisi ullamco enim. Fugiat reprehenderit id adipisicing ad reprehenderit. Consectetur nulla et est sit ipsum non. Ut consequat voluptate fugiat quis cupidatat irure excepteur adipisicing Lorem deserunt velit laboris officia do in. Consectetur enim consequat et cillum veniam sint aliqua incididunt reprehenderit officia excepteur consectetur id nostrud.",
-      },
-      {
-        title: "build",
-        body: "Sunt id quis aliquip reprehenderit ad veniam adipisicing magna consectetur incididunt sunt eu. Minim proident qui dolore minim anim nisi elit culpa nulla reprehenderit et minim duis reprehenderit. Velit duis duis id elit ut quis Lorem est cupidatat deserunt do ullamco cupidatat labore excepteur. Enim nisi mollit consectetur incididunt nisi ullamco enim. Fugiat reprehenderit id adipisicing ad reprehenderit. Consectetur nulla et est sit ipsum non. Ut consequat voluptate fugiat quis cupidatat irure excepteur adipisicing Lorem deserunt velit laboris officia do in. Consectetur enim consequat et cillum veniam sint aliqua incididunt reprehenderit officia excepteur consectetur id nostrud.",
-      },
-    ],
-  };
   useEffect(() => {
     document.addEventListener("scroll", () => {
       console.log("position", window.scrollY);
@@ -38,7 +23,7 @@ const Home: NextPage = (props) => {
   return (
     <>
       <Header></Header>
-      <div className="container absolute top-7 -z-10">
+      <div className="container absolute top-7 -z-10 max-w-screen-xl">
         <div>
           <h1 className="font-lg-body font-bold text-8xl pt-8 text-left text-black first-letter:text-blue">
             david
@@ -70,17 +55,9 @@ const Home: NextPage = (props) => {
           amet voluptate fugiat labore aute ex culpa excepteur adipisicing.
           Labore ut est magna sit fugiat dolore. Officia enim laboris sit.
         </p>
-        <p>
-          Consectetur aliqua ullamco magna dolor fugiat duis Lorem. Pariatur
-          amet voluptate fugiat labore aute ex culpa excepteur adipisicing.
-          Labore ut est magna sit fugiat dolore. Officia enim laboris sit.
-        </p>
-        {content.sections.map((s, i) => 
-        <ContentSection
-        	key={i}
-          title={s.title}
-          body={s.body} />
-        )}
+        {content.sections.map((s, i) => (
+          <ContentSection key={i} title={s.title} body={s.body} />
+        ))}
       </div>
     </>
   );
