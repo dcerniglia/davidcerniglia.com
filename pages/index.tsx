@@ -5,10 +5,9 @@ import Image from "next/image";
 import ContentSection from "../components/ContentSection";
 import Header from "../components/Header";
 import styles from "../styles/Home.module.css";
-import { sections } from "./../public/site-content.json";
+import Link from "next/link";
 
 const Home: NextPage = (props) => {
-
   const content = {
     sections: [
       {
@@ -38,7 +37,7 @@ const Home: NextPage = (props) => {
   return (
     <>
       <Header></Header>
-      <div className="container absolute top-7 -z-10">
+      <div className="container absolute top-7 -z-10 scroll-m-7" id="top">
         <div>
           <h1 className="font-lg-body font-bold text-8xl pt-8 text-left text-black first-letter:text-blue">
             david
@@ -75,12 +74,25 @@ const Home: NextPage = (props) => {
           amet voluptate fugiat labore aute ex culpa excepteur adipisicing.
           Labore ut est magna sit fugiat dolore. Officia enim laboris sit.
         </p>
-        {content.sections.map((s, i) => 
-        <ContentSection
-        	key={i}
-          title={s.title}
-          body={s.body} />
-        )}
+        {content.sections.map((s, i) => (
+          <ContentSection key={i} title={s.title} body={s.body} />
+        ))}
+        <Link href={'#top'}><div className="blob h-20 w-20 fixed bottom-5 right-5 bg-yellow opacity-80 drop-shadow-xl backdrop-blur-lg">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2.5}
+            stroke="currentColor"
+            className="w-10 h-10 relative top-5 left-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"
+            />
+          </svg>
+        </div></Link>
       </div>
     </>
   );
