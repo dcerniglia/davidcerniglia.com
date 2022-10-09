@@ -8,3 +8,5 @@ export const highlight = () => {
     </span>
   );
 };
+
+export default highlight;
