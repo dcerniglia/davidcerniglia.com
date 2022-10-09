@@ -8,6 +8,7 @@ import styles from "../styles/Home.module.css";
 import { sections } from "./../public/site-content.json";
 
 const Home: NextPage = (props) => {
+
   const content = {
     sections: [
       {
@@ -37,7 +38,7 @@ const Home: NextPage = (props) => {
   return (
     <>
       <Header></Header>
-      <div className="container absolute top-6 -z-10">
+      <div className="container absolute top-7 -z-10">
         <div>
           <h1 className="font-lg-body font-bold text-8xl pt-8 text-left text-black first-letter:text-blue">
             david
@@ -74,26 +75,12 @@ const Home: NextPage = (props) => {
           amet voluptate fugiat labore aute ex culpa excepteur adipisicing.
           Labore ut est magna sit fugiat dolore. Officia enim laboris sit.
         </p>
-        {/* {content.sections.map((s) => {
+        {content.sections.map((s, i) => 
         <ContentSection
+        	key={i}
           title={s.title}
           body={s.body} />
-        })} */}
-        <ContentSection
-          title={content.sections[0].title}
-          body={content.sections[0].body} />
-        <ContentSection
-          title={content.sections[1].title}
-          body={content.sections[1].body}
-        ></ContentSection>
-        <ContentSection
-          title={content.sections[2].title}
-          body={content.sections[2].body}
-        ></ContentSection>
-        <ContentSection
-          title={content.sections[3].title}
-          body={content.sections[3].body}
-        ></ContentSection>
+        )}
       </div>
     </>
   );
