@@ -46,7 +46,7 @@ const Home: NextPage = (props) => {
             cerniglia
           </h1>
         </div>
-        <h2 className="text-center mt-4 font-sm-heading text-4xl font-extrabold">
+        <h2 className="text-center mt-4 font-sm-heading text-3xl font-extrabold">
           software developer
         </h2>
         <p className="font-body mt-6">
