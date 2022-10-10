@@ -35,10 +35,10 @@ const Home: NextPage = (props) => {
   });
 
   return (
-    <>
+    <div className="flex justify-center">
       <Header></Header>
-      <div className="container absolute top-7 -z-10 scroll-m-7" id="top">
-        <div>
+      <div className="container absolute top-7 -z-10 scroll-m-7 max-w-3xl" id="top">
+        <div className="max-w-md mx-auto">
           <h1 className="font-lg-body font-bold text-8xl pt-8 text-left text-black first-letter:text-blue">
             david
           </h1>
@@ -94,7 +94,7 @@ const Home: NextPage = (props) => {
           </svg>
         </div></Link>
       </div>
-    </>
+    </div>
   );
 };
 
